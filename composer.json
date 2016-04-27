@@ -1,15 +1,19 @@
 {
-    "name": "tilleuls/amazon-mws-orders",
+    "name": "angelomaragna/amazon-mws-orders",
     "type": "library",
-    "description": "Amazon Marketplace Web Service Orders PHP Client Library",
+    "description": "Amazon Marketplace Web Service Orders PHP Client Library (fork of Baptiste Meyer)",
     "keywords": ["amazon", "mws", "orders", "client", "api", "library"],
-    "homepage": "http://les-tilleuls.coop",
+    "homepage": "",
     "licence": "Apache-2.0",
     "authors": [
         {
           "name": "Baptiste Meyer",
           "email": "baptiste@les-tilleuls.coop"
-        }
+        },
+	{
+	  "name": "Angelo Maragna",
+	  "email": "angelo.maragna@gmail.com"
+	}
     ],
     "require": {
         "php": ">=5.2.8",
