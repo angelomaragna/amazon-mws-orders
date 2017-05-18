@@ -1,5 +1,5 @@
 <?php
-/** 
+/**
  *  PHP Version 5
  *
  *  @category    Amazon
@@ -9,41 +9,41 @@
  *  @license     http://aws.amazon.com/apache2.0  Apache License, Version 2.0
  *  @version     2011-01-01
  */
-/******************************************************************************* 
- * 
+/*******************************************************************************
+ *
  *  Marketplace Web Service Orders PHP5 Library
- * 
+ *
  */
 
 /**
  *  @see MarketplaceWebServiceOrders_Model
  */
-require_once ('MarketplaceWebServiceOrders/Model.php');  
+require_once ('MarketplaceWebServiceOrders/Model.php');
 
-    
+
 
 /**
  * MarketplaceWebServiceOrders_Model_ListOrdersByNextTokenResponse
- * 
+ *
  * Properties:
  * <ul>
- * 
+ *
  * <li>ListOrdersByNextTokenResult: MarketplaceWebServiceOrders_Model_ListOrdersByNextTokenResult</li>
  * <li>ResponseMetadata: MarketplaceWebServiceOrders_Model_ResponseMetadata</li>
  *
  * </ul>
- */ 
+ */
 class MarketplaceWebServiceOrders_Model_ListOrdersByNextTokenResponse extends MarketplaceWebServiceOrders_Model
 {
 
     /**
      * Construct new MarketplaceWebServiceOrders_Model_ListOrdersByNextTokenResponse
-     * 
-     * @param mixed $data DOMElement or Associative Array to construct from. 
-     * 
+     *
+     * @param mixed $data DOMElement or Associative Array to construct from.
+     *
      * Valid properties:
      * <ul>
-     * 
+     *
      * <li>ListOrdersByNextTokenResult: MarketplaceWebServiceOrders_Model_ListOrdersByNextTokenResult</li>
      * <li>ResponseMetadata: MarketplaceWebServiceOrders_Model_ResponseMetadata</li>
      *
@@ -62,46 +62,46 @@ class MarketplaceWebServiceOrders_Model_ListOrdersByNextTokenResponse extends Ma
         parent::__construct($data);
     }
 
-       
+
     /**
      * Construct MarketplaceWebServiceOrders_Model_ListOrdersByNextTokenResponse from XML string
-     * 
+     *
      * @param string $xml XML string to construct from
-     * @return MarketplaceWebServiceOrders_Model_ListOrdersByNextTokenResponse 
+     * @return MarketplaceWebServiceOrders_Model_ListOrdersByNextTokenResponse
      */
     public static function fromXML($xml)
     {
         $dom = new DOMDocument();
         $dom->loadXML($xml);
         $xpath = new DOMXPath($dom);
-    	$xpath->registerNamespace('a', 'https://mws.amazonservices.com/Orders/2011-01-01');
+    	$xpath->registerNamespace('a', 'https://mws.amazonservices.com/Orders/2013-09-01');
         $response = $xpath->query('//a:ListOrdersByNextTokenResponse');
         if ($response->length == 1) {
-            return new MarketplaceWebServiceOrders_Model_ListOrdersByNextTokenResponse(($response->item(0))); 
+            return new MarketplaceWebServiceOrders_Model_ListOrdersByNextTokenResponse(($response->item(0)));
         } else {
-            throw new Exception ("Unable to construct MarketplaceWebServiceOrders_Model_ListOrdersByNextTokenResponse from provided XML. 
+            throw new Exception ("Unable to construct MarketplaceWebServiceOrders_Model_ListOrdersByNextTokenResponse from provided XML.
                                   Make sure that ListOrdersByNextTokenResponse is a root element");
         }
-          
+
     }
-    
+
     /**
      * Gets the value of the ListOrdersByNextTokenResult.
-     * 
+     *
      * @return ListOrdersByNextTokenResult ListOrdersByNextTokenResult
      */
-    public function getListOrdersByNextTokenResult() 
+    public function getListOrdersByNextTokenResult()
     {
         return $this->_fields['ListOrdersByNextTokenResult']['FieldValue'];
     }
 
     /**
      * Sets the value of the ListOrdersByNextTokenResult.
-     * 
+     *
      * @param ListOrdersByNextTokenResult ListOrdersByNextTokenResult
      * @return void
      */
-    public function setListOrdersByNextTokenResult($value) 
+    public function setListOrdersByNextTokenResult($value)
     {
         $this->_fields['ListOrdersByNextTokenResult']['FieldValue'] = $value;
         return;
@@ -109,7 +109,7 @@ class MarketplaceWebServiceOrders_Model_ListOrdersByNextTokenResponse extends Ma
 
     /**
      * Sets the value of the ListOrdersByNextTokenResult  and returns this instance
-     * 
+     *
      * @param ListOrdersByNextTokenResult $value ListOrdersByNextTokenResult
      * @return MarketplaceWebServiceOrders_Model_ListOrdersByNextTokenResponse instance
      */
@@ -122,7 +122,7 @@ class MarketplaceWebServiceOrders_Model_ListOrdersByNextTokenResponse extends Ma
 
     /**
      * Checks if ListOrdersByNextTokenResult  is set
-     * 
+     *
      * @return bool true if ListOrdersByNextTokenResult property is set
      */
     public function isSetListOrdersByNextTokenResult()
@@ -133,21 +133,21 @@ class MarketplaceWebServiceOrders_Model_ListOrdersByNextTokenResponse extends Ma
 
     /**
      * Gets the value of the ResponseMetadata.
-     * 
+     *
      * @return ResponseMetadata ResponseMetadata
      */
-    public function getResponseMetadata() 
+    public function getResponseMetadata()
     {
         return $this->_fields['ResponseMetadata']['FieldValue'];
     }
 
     /**
      * Sets the value of the ResponseMetadata.
-     * 
+     *
      * @param ResponseMetadata ResponseMetadata
      * @return void
      */
-    public function setResponseMetadata($value) 
+    public function setResponseMetadata($value)
     {
         $this->_fields['ResponseMetadata']['FieldValue'] = $value;
         return;
@@ -155,7 +155,7 @@ class MarketplaceWebServiceOrders_Model_ListOrdersByNextTokenResponse extends Ma
 
     /**
      * Sets the value of the ResponseMetadata  and returns this instance
-     * 
+     *
      * @param ResponseMetadata $value ResponseMetadata
      * @return MarketplaceWebServiceOrders_Model_ListOrdersByNextTokenResponse instance
      */
@@ -168,7 +168,7 @@ class MarketplaceWebServiceOrders_Model_ListOrdersByNextTokenResponse extends Ma
 
     /**
      * Checks if ResponseMetadata  is set
-     * 
+     *
      * @return bool true if ResponseMetadata property is set
      */
     public function isSetResponseMetadata()
@@ -181,13 +181,13 @@ class MarketplaceWebServiceOrders_Model_ListOrdersByNextTokenResponse extends Ma
 
     /**
      * XML Representation for this object
-     * 
+     *
      * @return string XML for this object
      */
-    public function toXML() 
+    public function toXML()
     {
         $xml = "";
-        $xml .= "<ListOrdersByNextTokenResponse xmlns=\"https://mws.amazonservices.com/Orders/2011-01-01\">";
+        $xml .= "<ListOrdersByNextTokenResponse xmlns=\"https://mws.amazonservices.com/Orders/2013-09-01\">";
         $xml .= $this->_toXMLFragment();
         $xml .= "</ListOrdersByNextTokenResponse>";
         return $xml;

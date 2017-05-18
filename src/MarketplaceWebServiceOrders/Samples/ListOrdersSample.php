@@ -1,5 +1,5 @@
 <?php
-/** 
+/**
  *  PHP Version 5
  *
  *  @category    Amazon
@@ -9,35 +9,35 @@
  *  @license     http://aws.amazon.com/apache2.0  Apache License, Version 2.0
  *  @version     2011-01-01
  */
-/******************************************************************************* 
- * 
+/*******************************************************************************
+ *
  *  Marketplace Web Service Orders PHP5 Library
- * 
+ *
  */
 
 /**
  * List Orders  Sample
  */
 
-include_once ('.config.inc.php'); 
+include_once ('.config.inc.php');
 
 /************************************************************************
  * Instantiate Implementation of MarketplaceWebServiceOrders
- * 
- * AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY constants 
- * are defined in the .config.inc.php located in the same 
+ *
+ * AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY constants
+ * are defined in the .config.inc.php located in the same
  * directory as this sample
  ***********************************************************************/
 // United States:
-//$serviceUrl = "https://mws.amazonservices.com/Orders/2011-01-01";
+//$serviceUrl = "https://mws.amazonservices.com/Orders/2013-09-01";
 // Europe
-//$serviceUrl = "https://mws-eu.amazonservices.com/Orders/2011-01-01";
+//$serviceUrl = "https://mws-eu.amazonservices.com/Orders/2013-09-01";
 // Japan
-//$serviceUrl = "https://mws.amazonservices.jp/Orders/2011-01-01";
+//$serviceUrl = "https://mws.amazonservices.jp/Orders/2013-09-01";
 // China
-//$serviceUrl = "https://mws.amazonservices.com.cn/Orders/2011-01-01";
+//$serviceUrl = "https://mws.amazonservices.com.cn/Orders/2013-09-01";
 // Canada
-//$serviceUrl = "https://mws.amazonservices.ca/Orders/2011-01-01";
+//$serviceUrl = "https://mws.amazonservices.ca/Orders/2013-09-01";
 
  $config = array (
    'ServiceURL' => $serviceUrl,
@@ -52,9 +52,9 @@ include_once ('.config.inc.php');
         APPLICATION_NAME,
         APPLICATION_VERSION,
         $config);
- 
- 
- 
+
+
+
 /************************************************************************
  * Uncomment to try out Mock Service that simulates MarketplaceWebServiceOrders
  * responses without calling MarketplaceWebServiceOrders service.
@@ -68,7 +68,7 @@ include_once ('.config.inc.php');
  // $service = new MarketplaceWebServiceOrders_Mock();
 
 /************************************************************************
- * Setup request parameters and uncomment invoke to try out 
+ * Setup request parameters and uncomment invoke to try out
  * sample for List Orders Action
  ***********************************************************************/
  // @TODO: set request. Action can be passed as MarketplaceWebServiceOrders_Model_ListOrdersRequest
@@ -97,249 +97,249 @@ include_once ('.config.inc.php');
  // object or array of parameters
  invokeListOrders($service, $request);
 
-                                        
+
 /**
   * List Orders Action Sample
   * ListOrders can be used to find orders that meet the specified criteria.
-  *   
+  *
   * @param MarketplaceWebServiceOrders_Interface $service instance of MarketplaceWebServiceOrders_Interface
   * @param mixed $request MarketplaceWebServiceOrders_Model_ListOrders or array of parameters
   */
-  function invokeListOrders(MarketplaceWebServiceOrders_Interface $service, $request) 
+  function invokeListOrders(MarketplaceWebServiceOrders_Interface $service, $request)
   {
       try {
               $response = $service->listOrders($request);
-              
+
                 echo ("Service Response\n");
                 echo ("=============================================================================\n");
 
                 echo("        ListOrdersResponse\n");
-                if ($response->isSetListOrdersResult()) { 
+                if ($response->isSetListOrdersResult()) {
                     echo("            ListOrdersResult\n");
                     $listOrdersResult = $response->getListOrdersResult();
-                    if ($listOrdersResult->isSetNextToken()) 
+                    if ($listOrdersResult->isSetNextToken())
                     {
                         echo("                NextToken\n");
                         echo("                    " . $listOrdersResult->getNextToken() . "\n");
                     }
-                    if ($listOrdersResult->isSetCreatedBefore()) 
+                    if ($listOrdersResult->isSetCreatedBefore())
                     {
                         echo("                CreatedBefore\n");
                         echo("                    " . $listOrdersResult->getCreatedBefore() . "\n");
                     }
-                    if ($listOrdersResult->isSetLastUpdatedBefore()) 
+                    if ($listOrdersResult->isSetLastUpdatedBefore())
                     {
                         echo("                LastUpdatedBefore\n");
                         echo("                    " . $listOrdersResult->getLastUpdatedBefore() . "\n");
                     }
-                    if ($listOrdersResult->isSetOrders()) { 
+                    if ($listOrdersResult->isSetOrders()) {
                         echo("                Orders\n");
                         $orders = $listOrdersResult->getOrders();
                         $orderList = $orders->getOrder();
                         foreach ($orderList as $order) {
                             echo("                    Order\n");
-                            if ($order->isSetAmazonOrderId()) 
+                            if ($order->isSetAmazonOrderId())
                             {
                                 echo("                        AmazonOrderId\n");
                                 echo("                            " . $order->getAmazonOrderId() . "\n");
                             }
-                            if ($order->isSetSellerOrderId()) 
+                            if ($order->isSetSellerOrderId())
                             {
                                 echo("                        SellerOrderId\n");
                                 echo("                            " . $order->getSellerOrderId() . "\n");
                             }
-                            if ($order->isSetPurchaseDate()) 
+                            if ($order->isSetPurchaseDate())
                             {
                                 echo("                        PurchaseDate\n");
                                 echo("                            " . $order->getPurchaseDate() . "\n");
                             }
-                            if ($order->isSetLastUpdateDate()) 
+                            if ($order->isSetLastUpdateDate())
                             {
                                 echo("                        LastUpdateDate\n");
                                 echo("                            " . $order->getLastUpdateDate() . "\n");
                             }
-                            if ($order->isSetOrderStatus()) 
+                            if ($order->isSetOrderStatus())
                             {
                                 echo("                        OrderStatus\n");
                                 echo("                            " . $order->getOrderStatus() . "\n");
                             }
-                            if ($order->isSetFulfillmentChannel()) 
+                            if ($order->isSetFulfillmentChannel())
                             {
                                 echo("                        FulfillmentChannel\n");
                                 echo("                            " . $order->getFulfillmentChannel() . "\n");
                             }
-                            if ($order->isSetSalesChannel()) 
+                            if ($order->isSetSalesChannel())
                             {
                                 echo("                        SalesChannel\n");
                                 echo("                            " . $order->getSalesChannel() . "\n");
                             }
-                            if ($order->isSetOrderChannel()) 
+                            if ($order->isSetOrderChannel())
                             {
                                 echo("                        OrderChannel\n");
                                 echo("                            " . $order->getOrderChannel() . "\n");
                             }
-                            if ($order->isSetShipServiceLevel()) 
+                            if ($order->isSetShipServiceLevel())
                             {
                                 echo("                        ShipServiceLevel\n");
                                 echo("                            " . $order->getShipServiceLevel() . "\n");
                             }
-                            if ($order->isSetShippingAddress()) { 
+                            if ($order->isSetShippingAddress()) {
                                 echo("                        ShippingAddress\n");
                                 $shippingAddress = $order->getShippingAddress();
-                                if ($shippingAddress->isSetName()) 
+                                if ($shippingAddress->isSetName())
                                 {
                                     echo("                            Name\n");
                                     echo("                                " . $shippingAddress->getName() . "\n");
                                 }
-                                if ($shippingAddress->isSetAddressLine1()) 
+                                if ($shippingAddress->isSetAddressLine1())
                                 {
                                     echo("                            AddressLine1\n");
                                     echo("                                " . $shippingAddress->getAddressLine1() . "\n");
                                 }
-                                if ($shippingAddress->isSetAddressLine2()) 
+                                if ($shippingAddress->isSetAddressLine2())
                                 {
                                     echo("                            AddressLine2\n");
                                     echo("                                " . $shippingAddress->getAddressLine2() . "\n");
                                 }
-                                if ($shippingAddress->isSetAddressLine3()) 
+                                if ($shippingAddress->isSetAddressLine3())
                                 {
                                     echo("                            AddressLine3\n");
                                     echo("                                " . $shippingAddress->getAddressLine3() . "\n");
                                 }
-                                if ($shippingAddress->isSetCity()) 
+                                if ($shippingAddress->isSetCity())
                                 {
                                     echo("                            City\n");
                                     echo("                                " . $shippingAddress->getCity() . "\n");
                                 }
-                                if ($shippingAddress->isSetCounty()) 
+                                if ($shippingAddress->isSetCounty())
                                 {
                                     echo("                            County\n");
                                     echo("                                " . $shippingAddress->getCounty() . "\n");
                                 }
-                                if ($shippingAddress->isSetDistrict()) 
+                                if ($shippingAddress->isSetDistrict())
                                 {
                                     echo("                            District\n");
                                     echo("                                " . $shippingAddress->getDistrict() . "\n");
                                 }
-                                if ($shippingAddress->isSetStateOrRegion()) 
+                                if ($shippingAddress->isSetStateOrRegion())
                                 {
                                     echo("                            StateOrRegion\n");
                                     echo("                                " . $shippingAddress->getStateOrRegion() . "\n");
                                 }
-                                if ($shippingAddress->isSetPostalCode()) 
+                                if ($shippingAddress->isSetPostalCode())
                                 {
                                     echo("                            PostalCode\n");
                                     echo("                                " . $shippingAddress->getPostalCode() . "\n");
                                 }
-                                if ($shippingAddress->isSetCountryCode()) 
+                                if ($shippingAddress->isSetCountryCode())
                                 {
                                     echo("                            CountryCode\n");
                                     echo("                                " . $shippingAddress->getCountryCode() . "\n");
                                 }
-                                if ($shippingAddress->isSetPhone()) 
+                                if ($shippingAddress->isSetPhone())
                                 {
                                     echo("                            Phone\n");
                                     echo("                                " . $shippingAddress->getPhone() . "\n");
                                 }
-                            } 
-                            if ($order->isSetOrderTotal()) { 
+                            }
+                            if ($order->isSetOrderTotal()) {
                                 echo("                        OrderTotal\n");
                                 $orderTotal = $order->getOrderTotal();
-                                if ($orderTotal->isSetCurrencyCode()) 
+                                if ($orderTotal->isSetCurrencyCode())
                                 {
                                     echo("                            CurrencyCode\n");
                                     echo("                                " . $orderTotal->getCurrencyCode() . "\n");
                                 }
-                                if ($orderTotal->isSetAmount()) 
+                                if ($orderTotal->isSetAmount())
                                 {
                                     echo("                            Amount\n");
                                     echo("                                " . $orderTotal->getAmount() . "\n");
                                 }
-                            } 
-                            if ($order->isSetNumberOfItemsShipped()) 
+                            }
+                            if ($order->isSetNumberOfItemsShipped())
                             {
                                 echo("                        NumberOfItemsShipped\n");
                                 echo("                            " . $order->getNumberOfItemsShipped() . "\n");
                             }
-                            if ($order->isSetNumberOfItemsUnshipped()) 
+                            if ($order->isSetNumberOfItemsUnshipped())
                             {
                                 echo("                        NumberOfItemsUnshipped\n");
                                 echo("                            " . $order->getNumberOfItemsUnshipped() . "\n");
                             }
-                            if ($order->isSetPaymentExecutionDetail()) { 
+                            if ($order->isSetPaymentExecutionDetail()) {
                                 echo("                        PaymentExecutionDetail\n");
                                 $paymentExecutionDetail = $order->getPaymentExecutionDetail();
                                 $paymentExecutionDetailItemList = $paymentExecutionDetail->getPaymentExecutionDetailItem();
                                 foreach ($paymentExecutionDetailItemList as $paymentExecutionDetailItem) {
                                     echo("                            PaymentExecutionDetailItem\n");
-                                    if ($paymentExecutionDetailItem->isSetPayment()) { 
+                                    if ($paymentExecutionDetailItem->isSetPayment()) {
                                         echo("                                Payment\n");
                                         $payment = $paymentExecutionDetailItem->getPayment();
-                                        if ($payment->isSetCurrencyCode()) 
+                                        if ($payment->isSetCurrencyCode())
                                         {
                                             echo("                                    CurrencyCode\n");
                                             echo("                                        " . $payment->getCurrencyCode() . "\n");
                                         }
-                                        if ($payment->isSetAmount()) 
+                                        if ($payment->isSetAmount())
                                         {
                                             echo("                                    Amount\n");
                                             echo("                                        " . $payment->getAmount() . "\n");
                                         }
-                                    } 
-                                    if ($paymentExecutionDetailItem->isSetPaymentMethod()) 
+                                    }
+                                    if ($paymentExecutionDetailItem->isSetPaymentMethod())
                                     {
                                         echo("                                PaymentMethod\n");
                                         echo("                                    " . $paymentExecutionDetailItem->getPaymentMethod() . "\n");
                                     }
                                 }
-                            } 
-                            if ($order->isSetPaymentMethod()) 
+                            }
+                            if ($order->isSetPaymentMethod())
                             {
                                 echo("                        PaymentMethod\n");
                                 echo("                            " . $order->getPaymentMethod() . "\n");
                             }
-                            if ($order->isSetMarketplaceId()) 
+                            if ($order->isSetMarketplaceId())
                             {
                                 echo("                        MarketplaceId\n");
                                 echo("                            " . $order->getMarketplaceId() . "\n");
                             }
-                            if ($order->isSetBuyerEmail()) 
+                            if ($order->isSetBuyerEmail())
                             {
                                 echo("                        BuyerEmail\n");
                                 echo("                            " . $order->getBuyerEmail() . "\n");
                             }
-                            if ($order->isSetBuyerName()) 
+                            if ($order->isSetBuyerName())
                             {
                                 echo("                        BuyerName\n");
                                 echo("                            " . $order->getBuyerName() . "\n");
                             }
-                            if ($order->isSetShipmentServiceLevelCategory()) 
+                            if ($order->isSetShipmentServiceLevelCategory())
                             {
                                 echo("                        ShipmentServiceLevelCategory\n");
                                 echo("                            " . $order->getShipmentServiceLevelCategory() . "\n");
                             }
-                            if ($order->isSetShippedByAmazonTFM()) 
+                            if ($order->isSetShippedByAmazonTFM())
                             {
                                 echo("                        ShippedByAmazonTFM\n");
                                 echo("                            " . $order->getShippedByAmazonTFM() . "\n");
                             }
-                            if ($order->isSetTFMShipmentStatus()) 
+                            if ($order->isSetTFMShipmentStatus())
                             {
                                 echo("                        TFMShipmentStatus\n");
                                 echo("                            " . $order->getTFMShipmentStatus() . "\n");
                             }
                         }
-                    } 
-                } 
-                if ($response->isSetResponseMetadata()) { 
+                    }
+                }
+                if ($response->isSetResponseMetadata()) {
                     echo("            ResponseMetadata\n");
                     $responseMetadata = $response->getResponseMetadata();
-                    if ($responseMetadata->isSetRequestId()) 
+                    if ($responseMetadata->isSetRequestId())
                     {
                         echo("                RequestId\n");
                         echo("                    " . $responseMetadata->getRequestId() . "\n");
                     }
-                } 
+                }
 
               echo("            ResponseHeaderMetadata: " . $response->getResponseHeaderMetadata() . "\n");
      } catch (MarketplaceWebServiceOrders_Exception $ex) {
@@ -352,4 +352,3 @@ include_once ('.config.inc.php');
          echo("ResponseHeaderMetadata: " . $ex->getResponseHeaderMetadata() . "\n");
      }
  }
-        

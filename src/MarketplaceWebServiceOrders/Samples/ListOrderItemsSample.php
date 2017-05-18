@@ -1,5 +1,5 @@
 <?php
-/** 
+/**
  *  PHP Version 5
  *
  *  @category    Amazon
@@ -9,35 +9,35 @@
  *  @license     http://aws.amazon.com/apache2.0  Apache License, Version 2.0
  *  @version     2011-01-01
  */
-/******************************************************************************* 
- * 
+/*******************************************************************************
+ *
  *  Marketplace Web Service Orders PHP5 Library
- * 
+ *
  */
 
 /**
  * List Order Items  Sample
  */
 
-include_once ('.config.inc.php'); 
+include_once ('.config.inc.php');
 
 /************************************************************************
  * Instantiate Implementation of MarketplaceWebServiceOrders
- * 
- * AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY constants 
- * are defined in the .config.inc.php located in the same 
+ *
+ * AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY constants
+ * are defined in the .config.inc.php located in the same
  * directory as this sample
  ***********************************************************************/
 // United States:
-//$serviceUrl = "https://mws.amazonservices.com/Orders/2011-01-01";
+//$serviceUrl = "https://mws.amazonservices.com/Orders/2013-09-01";
 // Europe
-//$serviceUrl = "https://mws-eu.amazonservices.com/Orders/2011-01-01";
+//$serviceUrl = "https://mws-eu.amazonservices.com/Orders/2013-09-01";
 // Japan
-//$serviceUrl = "https://mws.amazonservices.jp/Orders/2011-01-01";
+//$serviceUrl = "https://mws.amazonservices.jp/Orders/2013-09-01";
 // China
-//$serviceUrl = "https://mws.amazonservices.com.cn/Orders/2011-01-01";
+//$serviceUrl = "https://mws.amazonservices.com.cn/Orders/2013-09-01";
 // Canada
-//$serviceUrl = "https://mws.amazonservices.ca/Orders/2011-01-01";
+//$serviceUrl = "https://mws.amazonservices.ca/Orders/2013-09-01";
 
  $config = array (
    'ServiceURL' => $serviceUrl,
@@ -52,9 +52,9 @@ include_once ('.config.inc.php');
         APPLICATION_NAME,
         APPLICATION_VERSION,
         $config);
- 
- 
- 
+
+
+
 /************************************************************************
  * Uncomment to try out Mock Service that simulates MarketplaceWebServiceOrders
  * responses without calling MarketplaceWebServiceOrders service.
@@ -68,7 +68,7 @@ include_once ('.config.inc.php');
  // $service = new MarketplaceWebServiceOrders_Mock();
 
 /************************************************************************
- * Setup request parameters and uncomment invoke to try out 
+ * Setup request parameters and uncomment invoke to try out
  * sample for List Order Items Action
  ***********************************************************************/
  // @TODO: set request. Action can be passed as MarketplaceWebServiceOrders_Model_ListOrderItemsRequest
@@ -77,268 +77,268 @@ include_once ('.config.inc.php');
  // object or array of parameters
  invokeListOrderItems($service, $request);
 
-                                    
+
 /**
   * List Order Items Action Sample
   * This operation can be used to list the items of the order indicated by the
   * given order id (only a single Amazon order id is allowed).
-  *   
+  *
   * @param MarketplaceWebServiceOrders_Interface $service instance of MarketplaceWebServiceOrders_Interface
   * @param mixed $request MarketplaceWebServiceOrders_Model_ListOrderItems or array of parameters
   */
-  function invokeListOrderItems(MarketplaceWebServiceOrders_Interface $service, $request) 
+  function invokeListOrderItems(MarketplaceWebServiceOrders_Interface $service, $request)
   {
       try {
               $response = $service->listOrderItems($request);
-              
+
                 echo ("Service Response\n");
                 echo ("=============================================================================\n");
 
                 echo("        ListOrderItemsResponse\n");
-                if ($response->isSetListOrderItemsResult()) { 
+                if ($response->isSetListOrderItemsResult()) {
                     echo("            ListOrderItemsResult\n");
                     $listOrderItemsResult = $response->getListOrderItemsResult();
-                    if ($listOrderItemsResult->isSetNextToken()) 
+                    if ($listOrderItemsResult->isSetNextToken())
                     {
                         echo("                NextToken\n");
                         echo("                    " . $listOrderItemsResult->getNextToken() . "\n");
                     }
-                    if ($listOrderItemsResult->isSetAmazonOrderId()) 
+                    if ($listOrderItemsResult->isSetAmazonOrderId())
                     {
                         echo("                AmazonOrderId\n");
                         echo("                    " . $listOrderItemsResult->getAmazonOrderId() . "\n");
                     }
-                    if ($listOrderItemsResult->isSetOrderItems()) { 
+                    if ($listOrderItemsResult->isSetOrderItems()) {
                         echo("                OrderItems\n");
                         $orderItems = $listOrderItemsResult->getOrderItems();
                         $orderItemList = $orderItems->getOrderItem();
                         foreach ($orderItemList as $orderItem) {
                             echo("                    OrderItem\n");
-                            if ($orderItem->isSetASIN()) 
+                            if ($orderItem->isSetASIN())
                             {
                                 echo("                        ASIN\n");
                                 echo("                            " . $orderItem->getASIN() . "\n");
                             }
-                            if ($orderItem->isSetSellerSKU()) 
+                            if ($orderItem->isSetSellerSKU())
                             {
                                 echo("                        SellerSKU\n");
                                 echo("                            " . $orderItem->getSellerSKU() . "\n");
                             }
-                            if ($orderItem->isSetOrderItemId()) 
+                            if ($orderItem->isSetOrderItemId())
                             {
                                 echo("                        OrderItemId\n");
                                 echo("                            " . $orderItem->getOrderItemId() . "\n");
                             }
-                            if ($orderItem->isSetTitle()) 
+                            if ($orderItem->isSetTitle())
                             {
                                 echo("                        Title\n");
                                 echo("                            " . $orderItem->getTitle() . "\n");
                             }
-                            if ($orderItem->isSetQuantityOrdered()) 
+                            if ($orderItem->isSetQuantityOrdered())
                             {
                                 echo("                        QuantityOrdered\n");
                                 echo("                            " . $orderItem->getQuantityOrdered() . "\n");
                             }
-                            if ($orderItem->isSetQuantityShipped()) 
+                            if ($orderItem->isSetQuantityShipped())
                             {
                                 echo("                        QuantityShipped\n");
                                 echo("                            " . $orderItem->getQuantityShipped() . "\n");
                             }
-                            if ($orderItem->isSetItemPrice()) { 
+                            if ($orderItem->isSetItemPrice()) {
                                 echo("                        ItemPrice\n");
                                 $itemPrice = $orderItem->getItemPrice();
-                                if ($itemPrice->isSetCurrencyCode()) 
+                                if ($itemPrice->isSetCurrencyCode())
                                 {
                                     echo("                            CurrencyCode\n");
                                     echo("                                " . $itemPrice->getCurrencyCode() . "\n");
                                 }
-                                if ($itemPrice->isSetAmount()) 
+                                if ($itemPrice->isSetAmount())
                                 {
                                     echo("                            Amount\n");
                                     echo("                                " . $itemPrice->getAmount() . "\n");
                                 }
-                            } 
-                            if ($orderItem->isSetShippingPrice()) { 
+                            }
+                            if ($orderItem->isSetShippingPrice()) {
                                 echo("                        ShippingPrice\n");
                                 $shippingPrice = $orderItem->getShippingPrice();
-                                if ($shippingPrice->isSetCurrencyCode()) 
+                                if ($shippingPrice->isSetCurrencyCode())
                                 {
                                     echo("                            CurrencyCode\n");
                                     echo("                                " . $shippingPrice->getCurrencyCode() . "\n");
                                 }
-                                if ($shippingPrice->isSetAmount()) 
+                                if ($shippingPrice->isSetAmount())
                                 {
                                     echo("                            Amount\n");
                                     echo("                                " . $shippingPrice->getAmount() . "\n");
                                 }
-                            } 
-                            if ($orderItem->isSetGiftWrapPrice()) { 
+                            }
+                            if ($orderItem->isSetGiftWrapPrice()) {
                                 echo("                        GiftWrapPrice\n");
                                 $giftWrapPrice = $orderItem->getGiftWrapPrice();
-                                if ($giftWrapPrice->isSetCurrencyCode()) 
+                                if ($giftWrapPrice->isSetCurrencyCode())
                                 {
                                     echo("                            CurrencyCode\n");
                                     echo("                                " . $giftWrapPrice->getCurrencyCode() . "\n");
                                 }
-                                if ($giftWrapPrice->isSetAmount()) 
+                                if ($giftWrapPrice->isSetAmount())
                                 {
                                     echo("                            Amount\n");
                                     echo("                                " . $giftWrapPrice->getAmount() . "\n");
                                 }
-                            } 
-                            if ($orderItem->isSetItemTax()) { 
+                            }
+                            if ($orderItem->isSetItemTax()) {
                                 echo("                        ItemTax\n");
                                 $itemTax = $orderItem->getItemTax();
-                                if ($itemTax->isSetCurrencyCode()) 
+                                if ($itemTax->isSetCurrencyCode())
                                 {
                                     echo("                            CurrencyCode\n");
                                     echo("                                " . $itemTax->getCurrencyCode() . "\n");
                                 }
-                                if ($itemTax->isSetAmount()) 
+                                if ($itemTax->isSetAmount())
                                 {
                                     echo("                            Amount\n");
                                     echo("                                " . $itemTax->getAmount() . "\n");
                                 }
-                            } 
-                            if ($orderItem->isSetShippingTax()) { 
+                            }
+                            if ($orderItem->isSetShippingTax()) {
                                 echo("                        ShippingTax\n");
                                 $shippingTax = $orderItem->getShippingTax();
-                                if ($shippingTax->isSetCurrencyCode()) 
+                                if ($shippingTax->isSetCurrencyCode())
                                 {
                                     echo("                            CurrencyCode\n");
                                     echo("                                " . $shippingTax->getCurrencyCode() . "\n");
                                 }
-                                if ($shippingTax->isSetAmount()) 
+                                if ($shippingTax->isSetAmount())
                                 {
                                     echo("                            Amount\n");
                                     echo("                                " . $shippingTax->getAmount() . "\n");
                                 }
-                            } 
-                            if ($orderItem->isSetGiftWrapTax()) { 
+                            }
+                            if ($orderItem->isSetGiftWrapTax()) {
                                 echo("                        GiftWrapTax\n");
                                 $giftWrapTax = $orderItem->getGiftWrapTax();
-                                if ($giftWrapTax->isSetCurrencyCode()) 
+                                if ($giftWrapTax->isSetCurrencyCode())
                                 {
                                     echo("                            CurrencyCode\n");
                                     echo("                                " . $giftWrapTax->getCurrencyCode() . "\n");
                                 }
-                                if ($giftWrapTax->isSetAmount()) 
+                                if ($giftWrapTax->isSetAmount())
                                 {
                                     echo("                            Amount\n");
                                     echo("                                " . $giftWrapTax->getAmount() . "\n");
                                 }
-                            } 
-                            if ($orderItem->isSetShippingDiscount()) { 
+                            }
+                            if ($orderItem->isSetShippingDiscount()) {
                                 echo("                        ShippingDiscount\n");
                                 $shippingDiscount = $orderItem->getShippingDiscount();
-                                if ($shippingDiscount->isSetCurrencyCode()) 
+                                if ($shippingDiscount->isSetCurrencyCode())
                                 {
                                     echo("                            CurrencyCode\n");
                                     echo("                                " . $shippingDiscount->getCurrencyCode() . "\n");
                                 }
-                                if ($shippingDiscount->isSetAmount()) 
+                                if ($shippingDiscount->isSetAmount())
                                 {
                                     echo("                            Amount\n");
                                     echo("                                " . $shippingDiscount->getAmount() . "\n");
                                 }
-                            } 
-                            if ($orderItem->isSetPromotionDiscount()) { 
+                            }
+                            if ($orderItem->isSetPromotionDiscount()) {
                                 echo("                        PromotionDiscount\n");
                                 $promotionDiscount = $orderItem->getPromotionDiscount();
-                                if ($promotionDiscount->isSetCurrencyCode()) 
+                                if ($promotionDiscount->isSetCurrencyCode())
                                 {
                                     echo("                            CurrencyCode\n");
                                     echo("                                " . $promotionDiscount->getCurrencyCode() . "\n");
                                 }
-                                if ($promotionDiscount->isSetAmount()) 
+                                if ($promotionDiscount->isSetAmount())
                                 {
                                     echo("                            Amount\n");
                                     echo("                                " . $promotionDiscount->getAmount() . "\n");
                                 }
-                            } 
-                            if ($orderItem->isSetPromotionIds()) { 
+                            }
+                            if ($orderItem->isSetPromotionIds()) {
                                 echo("                        PromotionIds\n");
                                 $promotionIds = $orderItem->getPromotionIds();
                                 $promotionIdList  =  $promotionIds->getPromotionId();
-                                foreach ($promotionIdList as $promotionId) { 
+                                foreach ($promotionIdList as $promotionId) {
                                     echo("                            PromotionId\n");
                                     echo("                                " . $promotionId);
-                                }	
-                            } 
-                            if ($orderItem->isSetCODFee()) { 
+                                }
+                            }
+                            if ($orderItem->isSetCODFee()) {
                                 echo("                        CODFee\n");
                                 $CODFee = $orderItem->getCODFee();
-                                if ($CODFee->isSetCurrencyCode()) 
+                                if ($CODFee->isSetCurrencyCode())
                                 {
                                     echo("                            CurrencyCode\n");
                                     echo("                                " . $CODFee->getCurrencyCode() . "\n");
                                 }
-                                if ($CODFee->isSetAmount()) 
+                                if ($CODFee->isSetAmount())
                                 {
                                     echo("                            Amount\n");
                                     echo("                                " . $CODFee->getAmount() . "\n");
                                 }
-                            } 
-                            if ($orderItem->isSetCODFeeDiscount()) { 
+                            }
+                            if ($orderItem->isSetCODFeeDiscount()) {
                                 echo("                        CODFeeDiscount\n");
                                 $CODFeeDiscount = $orderItem->getCODFeeDiscount();
-                                if ($CODFeeDiscount->isSetCurrencyCode()) 
+                                if ($CODFeeDiscount->isSetCurrencyCode())
                                 {
                                     echo("                            CurrencyCode\n");
                                     echo("                                " . $CODFeeDiscount->getCurrencyCode() . "\n");
                                 }
-                                if ($CODFeeDiscount->isSetAmount()) 
+                                if ($CODFeeDiscount->isSetAmount())
                                 {
                                     echo("                            Amount\n");
                                     echo("                                " . $CODFeeDiscount->getAmount() . "\n");
                                 }
-                            } 
-                            if ($orderItem->isSetGiftMessageText()) 
+                            }
+                            if ($orderItem->isSetGiftMessageText())
                             {
                                 echo("                        GiftMessageText\n");
                                 echo("                            " . $orderItem->getGiftMessageText() . "\n");
                             }
-                            if ($orderItem->isSetGiftWrapLevel()) 
+                            if ($orderItem->isSetGiftWrapLevel())
                             {
                                 echo("                        GiftWrapLevel\n");
                                 echo("                            " . $orderItem->getGiftWrapLevel() . "\n");
                             }
-                            if ($orderItem->isSetInvoiceData()) { 
+                            if ($orderItem->isSetInvoiceData()) {
                                 echo("                        InvoiceData\n");
                                 $invoiceData = $orderItem->getInvoiceData();
-                                if ($invoiceData->isSetInvoiceRequirement()) 
+                                if ($invoiceData->isSetInvoiceRequirement())
                                 {
                                     echo("                            InvoiceRequirement\n");
                                     echo("                                " . $invoiceData->getInvoiceRequirement() . "\n");
                                 }
-                                if ($invoiceData->isSetBuyerSelectedInvoiceCategory()) 
+                                if ($invoiceData->isSetBuyerSelectedInvoiceCategory())
                                 {
                                     echo("                            BuyerSelectedInvoiceCategory\n");
                                     echo("                                " . $invoiceData->getBuyerSelectedInvoiceCategory() . "\n");
                                 }
-                                if ($invoiceData->isSetInvoiceTitle()) 
+                                if ($invoiceData->isSetInvoiceTitle())
                                 {
                                     echo("                            InvoiceTitle\n");
                                     echo("                                " . $invoiceData->getInvoiceTitle() . "\n");
                                 }
-                                if ($invoiceData->isSetInvoiceInformation()) 
+                                if ($invoiceData->isSetInvoiceInformation())
                                 {
                                     echo("                            InvoiceInformation\n");
                                     echo("                                " . $invoiceData->getInvoiceInformation() . "\n");
                                 }
-                            } 
+                            }
                         }
-                    } 
-                } 
-                if ($response->isSetResponseMetadata()) { 
+                    }
+                }
+                if ($response->isSetResponseMetadata()) {
                     echo("            ResponseMetadata\n");
                     $responseMetadata = $response->getResponseMetadata();
-                    if ($responseMetadata->isSetRequestId()) 
+                    if ($responseMetadata->isSetRequestId())
                     {
                         echo("                RequestId\n");
                         echo("                    " . $responseMetadata->getRequestId() . "\n");
                     }
-                } 
+                }
 
               echo("            ResponseHeaderMetadata: " . $response->getResponseHeaderMetadata() . "\n");
      } catch (MarketplaceWebServiceOrders_Exception $ex) {
@@ -351,4 +351,3 @@ include_once ('.config.inc.php');
          echo("ResponseHeaderMetadata: " . $ex->getResponseHeaderMetadata() . "\n");
      }
  }
-            

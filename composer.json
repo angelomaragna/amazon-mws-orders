@@ -1,7 +1,7 @@
 {
     "name": "angelomaragna/amazon-mws-orders",
     "type": "library",
-    "version": "0.1.0-dev",
+    "version": "0.1.1-dev",
     "description": "Amazon Marketplace Web Service Orders PHP Client Library (fork of Baptiste Meyer)",
     "keywords": ["amazon", "mws", "orders", "client", "api", "library"],
     "homepage": "",

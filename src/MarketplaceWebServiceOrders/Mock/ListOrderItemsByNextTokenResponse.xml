@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ListOrderItemsByNextTokenResponse xmlns="https://mws.amazonservices.com/Orders/2011-01-01">
+<ListOrderItemsByNextTokenResponse xmlns="https://mws.amazonservices.com/Orders/2013-09-01">
   <ListOrderItemsByNextTokenResult>
     <!--Optional:-->
     <NextToken>string</NextToken>
