@@ -29,7 +29,7 @@ require_once ('MarketplaceWebServiceOrders/Interface.php');
 class MarketplaceWebServiceOrders_Client implements MarketplaceWebServiceOrders_Interface
 {
 
-    const SERVICE_VERSION = '2011-01-01';
+    const SERVICE_VERSION = '2013-09-01';
     const MWS_CLIENT_VERSION = '2013-04-30';
 
     /** @var string */
